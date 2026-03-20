@@ -20,10 +20,10 @@ const Products = () => {
   };
 
   const handleNext = () => {
-    setCurrentPage(currentPage + 1);
+    setCurrentPage((prev) => prev + 1);
   };
   const handlePrev = () => {
-    setCurrentPage(currentPage - 1);
+    setCurrentPage((prev) => prev - 1);
   };
 
   const fetchData = async () => {
@@ -47,7 +47,7 @@ const Products = () => {
     <>
       <button
         onClick={handleNext}
-        disabled={currentPage - 1}
+        disabled={currentPage === totalPages}
         className="p-2 border border-solid cursor-pointer disabled:opacity-50 font-gray"
       >
         Next
